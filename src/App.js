@@ -56,7 +56,33 @@ function App() {
           Demo of <a href="https://github.com/minimal-scouser/trny">trny</a>
         </p>
       </div>
-      <div className="row input-message form-group d-flex flex-md-row justify-content-center">
+      <div className="what-is-trny">
+        <p className="fs-4 fw-bold">What is Trny</p>
+        <p className="grey">
+          It is a javascript package that extracts transactional info from a
+          bank alert.
+        </p>
+        {/* <p className="grey">The following fields are extracted</p> */}
+        {/* <ol
+          className="grey"
+          style={{
+            width: '90%',
+          }}
+        >
+          <li>Account No</li>
+          <li>Balance</li>
+          <li>Money</li>
+          <li>Type of Transaction</li>
+        </ol> */}
+      </div>
+      <div className="row input-message form-group d-flex flex-md-row justify-content-center mb-5">
+        <p className="fs-4 fw-bold">Demo</p>
+        <p className="grey mb-1">Enter your bank alert here or select a demo message</p>
+        <p style={{
+          fontWeight: 500,
+          fontSize: 14,
+          color: "#8f8f8f"
+        }}>Note: No data is collected/stored</p>
         <div className="">
           <label htmlFor="input-message">Message</label>
           <textarea
@@ -89,12 +115,27 @@ function App() {
             })}
           </select>
         </div>
-        <div>
-          <button
-            className="w-100 btn btn-primary mt-3"
-            onClick={handleExtraction}
-          >
+        <div className="d-flex">
+          <button className="btn btn-primary mt-3" onClick={handleExtraction} style={{
+            width: "46%",
+            marginRight: "1rem",
+          }}>
             Extract
+          </button>
+          <button
+            type="button"
+            className="btn btn-light mt-3"
+            onClick={() => {
+              setMessage('');
+              setSelectedMessage('');
+              setData({});
+            }}
+            style={{
+              width: "50%",
+              backgroundColor: "#e3e3e3"
+            }}
+          >
+            Clear
           </button>
         </div>
       </div>
@@ -107,8 +148,8 @@ function App() {
       <div
         className="visit w-100 p-3 mt-3"
         style={{
-          display: "flex",
-          justifyContent: "center"
+          display: 'flex',
+          justifyContent: 'center',
         }}
       >
         <a href="https://github.com/minimal-scouser/trny">
